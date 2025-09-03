@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
@@ -22,7 +22,7 @@ export default function App() {
   ];
 
   const [text] = useTypewriter({
-    words: ["Full Stack Developer", "ML Engineer"],
+    words: ["Full Stack Developer", "ML Enthusiast"],
     loop: true,
     delaySpeed: 2000,
   });
@@ -37,12 +37,16 @@ export default function App() {
       content: ["DSA", "OOPS", "OS", "DBMS"],
     },
     {
-      heading: "Frameworks",
+      heading: "Frameworks & Libraries",
       content: ["React.js", "Flask", "Express.js", "Node.js", "Tailwind CSS"],
     },
     {
-      heading: "Tools",
-      content: ["CSS", "Git & Version Control", "VS Code", "Postman", "GitHub", "npm", "Vite", "MongoDB", "Numpy", "Pandas"],
+      heading: "Data Science & ML",
+      content: ["NumPy", "Pandas", "Matplotlib", "Scikit-learn"],
+    },
+    {
+      heading: "Tools & Platforms",
+      content: ["Git & Version Control", "GitHub", "Postman", "VS Code", "npm", "Vite", "MongoDB", "CSS"],
     },
   ];
 
@@ -50,25 +54,61 @@ export default function App() {
     {
       name: "TestMaker",
       href: "https://testmakerai.vercel.app/",
-      description: "TestMaker is an AI-powered platform designed to simplify the creation and management of custom tests and quizzes. It leverages Generative AI to automatically generate intelligent questions, supports PDF reading and writing through PyMuPDF, and allows educators and learners to efficiently organize assessments. The platform integrates a sleek and responsive frontend with React and Tailwind CSS, while Flask handles backend operations seamlessly.",
+      description:
+        "TestMaker is an AI-powered platform designed to simplify the creation and management of custom tests and quizzes. It leverages Generative AI to automatically generate intelligent questions, supports PDF reading and writing through PyMuPDF, and allows educators and learners to efficiently organize assessments. The platform integrates a sleek and responsive frontend with React and Tailwind CSS, while Flask handles backend operations seamlessly.",
       techstack: ["React", "Tailwind CSS", "Flask", "PyMuPDF", "OpenAI API"],
-      image: "testmaker.png"
+      image: "testmaker.png",
     },
     {
       name: "Stump Talk",
       href: "https://stumptalk.onrender.com/",
-      description: "Stump Talk is a community-driven discussion platform where users can share ideas, ask questions, and engage in meaningful conversations. It features real-time interactions, user-friendly interfaces, and persistent data storage with MongoDB. Built with React and Tailwind CSS on the frontend, and Node.js with Express on the backend, the platform emphasizes performance, scalability, and a seamless user experience.",
+      description:
+        "Stump Talk is a community-driven discussion platform where users can share ideas, ask questions, and engage in meaningful conversations. It features real-time interactions, user-friendly interfaces, and persistent data storage with MongoDB. Built with React and Tailwind CSS on the frontend, and Node.js with Express on the backend, the platform emphasizes performance, scalability, and a seamless user experience.",
       techstack: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Socket.io"],
-      image: "stumptalk.png"
+      image: "stumptalk.png",
     },
     {
       name: "Garhwal Yatra",
       href: "https://garhwal-yatra.vercel.app/",
-      description: "Garhwal Yatra is a static tourism blog dedicated to exploring the Garhwal region. It provides comprehensive information on districts, maps, and Char Dham pilgrimage spots with engaging content and interactive visuals. The project emphasizes responsive design and smooth navigation, built using React, Tailwind CSS, and React Router, with Vite for optimized performance. It serves as a one-stop guide for travelers and enthusiasts interested in the cultural and natural heritage of Garhwal.",
+      description:
+        "Garhwal Yatra is a static tourism blog dedicated to exploring the Garhwal region. It provides comprehensive information on districts, maps, and Char Dham pilgrimage spots with engaging content and interactive visuals. The project emphasizes responsive design and smooth navigation, built using React, Tailwind CSS, and React Router, with Vite for optimized performance. It serves as a one-stop guide for travelers and enthusiasts interested in the cultural and natural heritage of Garhwal.",
       techstack: ["React", "Tailwind CSS", "React Router", "Vite"],
-      image: "garhwalyatra.png"
-    }
+      image: "garhwalyatra.png",
+    },
+    {
+      name: "NoteVault",
+      href: "https://notevaultapp.vercel.app/",
+      description:
+        "NoteVault is a full-stack web application designed for secure and organized note management. It enables users to store, search, and access their notes seamlessly with Firebase authentication and real-time search functionality. Built with the MERN stack and styled using Tailwind CSS, the app focuses on responsive design, scalability, and smooth user experience. NoteVault streamlines the way students and professionals manage their study and work notes in the cloud.",
+      techstack: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Firebase"],
+      image: "notevault.png",
+    },
   ];
+
+  // Intersection Observer for active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["about", "skills", "projects"];
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section) {
+          const top = section.offsetTop;
+          if (scrollPosition >= top) {
+            setActive(sections[i].toUpperCase());
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // initialize on load
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   return (
     <div
@@ -90,20 +130,19 @@ export default function App() {
       ></div>
 
       <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
+
         <div className="lg:flex lg:justify-between lg:gap-4">
 
+          {/* Sidebar */}
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
-
             <div>
               <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-6xl font-outfit">
                 Anuj Negi
               </h1>
-
               <h2 className="mt-4 text-lg font-medium tracking-tight text-slate-200 sm:text-2xl font-outfit">
                 {text}
                 <Cursor cursorStyle="|" />
               </h2>
-
               <p className="mt-4 max-w-sm text-lg font-lato leading-normal">
                 Crafting intelligent, scalable, and user-friendly solutions — from dynamic full stack applications to cutting-edge machine learning models.
               </p>
@@ -121,7 +160,7 @@ export default function App() {
 
                       const section = document.getElementById(item.label.toLowerCase());
                       if (section) {
-                        const headerOffset = 96; 
+                        const headerOffset = 96;
                         const elementPosition = section.getBoundingClientRect().top + window.scrollY;
                         const offsetPosition = elementPosition - headerOffset;
 
@@ -135,14 +174,14 @@ export default function App() {
                     <a href={item.href} className="flex items-center">
                       <span
                         className={`nav-indicator mr-4 h-px transition-all motion-reduce:transition-none
-        ${active === item.label
+                        ${active === item.label
                             ? "w-16 bg-slate-200"
                             : "w-8 bg-slate-600 group-hover:w-16 group-hover:bg-slate-200"
                           }`}
                       ></span>
                       <span
                         className={`nav-text text-sm font-bold uppercase tracking-[0.2em] font-outfit transition-colors
-        ${active === item.label
+                        ${active === item.label
                             ? "text-slate-200"
                             : "text-slate-500 group-hover:text-slate-200"
                           }`}
@@ -171,13 +210,13 @@ export default function App() {
                 </li>
               ))}
             </ul>
-
           </header>
 
-          <main className="lg:top-0 lg:flex lg:w-[48%] lg:flex-col lg:justify-between lg:py-24 lg:mt-0 mt-10 ">
-
+          {/* Main content */}
+          <main className="lg:top-0 lg:flex lg:w-[48%] lg:flex-col lg:justify-between lg:py-24 lg:mt-0 mt-10">
+            {/* About */}
             <section id="about" className="mb-10">
-              <div className="lg:px-2 font-lato ">
+              <div className="lg:px-2 font-lato">
                 <p className="text-justify text-lg py-2">
                   I’m a <span className="text-white">developer</span> passionate about building <span className="text-white">seamless</span>, <span className="text-white">high-performance</span> applications that blend <span className="text-white">clean design</span> with <span className="text-white">intelligent functionality</span>. My work thrives at the intersection of <span className="text-white">full-stack engineering</span> and <span className="text-white">machine learning</span>, creating solutions that are not only <span className="text-white">visually appealing</span> but also <span className="text-white">smart</span>, <span className="text-white">scalable</span>, and <span className="text-white">impactful</span>.
                 </p>
@@ -209,6 +248,7 @@ export default function App() {
               </div>
             </section>
 
+            {/* Skills */}
             <section id="skills" className="mt-16 mb-10">
               <ul>
                 {skills.map((item, i) => (
@@ -216,8 +256,8 @@ export default function App() {
                     <h2 className="text-white font-outfit text-lg font-bold mb-2">{item.heading}</h2>
                     <ul className="mt-2 space-x-2 flex flex-wrap">
                       {item.content.map((text, j) => (
-                        <li className="mr-1.5 mt-2">
-                          <div key={j} className="flex font-lato items-center rounded-full bg-teal-400/10 px-3 py-1 text-sm font-medium leading-5 text-teal-300 ">
+                        <li className="mr-1.5 mt-2" key={j}>
+                          <div className="flex font-lato items-center rounded-full bg-teal-400/10 px-3 py-1 text-sm font-medium leading-5 text-teal-300 ">
                             {text}
                           </div>
                         </li>
@@ -228,15 +268,14 @@ export default function App() {
               </ul>
             </section>
 
+            {/* Projects */}
             <section id="projects" className="mt-16">
               <ul>
                 {projects.map((item, i) => (
                   <a href={item.href} key={i} className="block group">
-                    <li className="mb-8 p-4  rounded-lg transition-colors duration-300 hover:bg-white/10">
+                    <li className="mb-8 p-4 rounded-lg bg-white/10">
                       <div className="flex items-center justify-center">
-                        <h2 className="text-white font-outfit text-3xl font-semibold transition-colors duration-300 group-hover:text-teal-400">
-                          {item.name}
-                        </h2>
+                        <h2 className="font-outfit text-3xl font-semibold text-teal-400">{item.name}</h2>
                       </div>
                       <img src={item.image} className="aspect-full my-5 w-full sm:h-full h-44" />
                       <p className="text-justify font-lato text-lg leading-tight">{item.description}</p>
@@ -254,11 +293,12 @@ export default function App() {
                 ))}
               </ul>
             </section>
-
           </main>
 
         </div>
-      </div >
-    </div >
+
+      </div>
+
+    </div>
   );
 }
