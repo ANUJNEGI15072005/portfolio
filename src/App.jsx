@@ -52,6 +52,22 @@ export default function App() {
 
   const projects = [
     {
+      name: "BeYourTrainer",
+      href: "https://beyourtrainer.vercel.app/",
+      description:
+        "Beyourtrainer is a machine learning-driven fitness recommendation system that suggests personalized workout and diet plans based on user profiles, including fitness goals, body type, and activity level. The model leverages data-driven insights to provide effective fitness guidance, while the FastAPI backend ensures high performance and scalability. The web interface, built with React and Tailwind CSS, delivers an engaging and responsive user experience. This project showcases the integration of machine learning with modern web technologies for smart fitness assistance.",
+      techstack: ["Python", "Scikit-learn", "Pandas", "FastAPI", "React", "Tailwind CSS"],
+      image: "beyourtrainer.png",
+    },
+    {
+      name: "NoteVault",
+      href: "https://notevaultapp.vercel.app/",
+      description:
+        "NoteVault is a full-stack web application designed for secure and organized note management. It enables users to store, search, and access their notes seamlessly with Firebase authentication and real-time search functionality. Built with the MERN stack and styled using Tailwind CSS, the app focuses on responsive design, scalability, and smooth user experience. NoteVault streamlines the way students and professionals manage their study and work notes in the cloud.",
+      techstack: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Firebase"],
+      image: "notevault.png",
+    },
+    {
       name: "TestMaker",
       href: "https://testmakerai.vercel.app/",
       description:
@@ -75,17 +91,8 @@ export default function App() {
       techstack: ["React", "Tailwind CSS", "React Router", "Vite"],
       image: "garhwalyatra.png",
     },
-    {
-      name: "NoteVault",
-      href: "https://notevaultapp.vercel.app/",
-      description:
-        "NoteVault is a full-stack web application designed for secure and organized note management. It enables users to store, search, and access their notes seamlessly with Firebase authentication and real-time search functionality. Built with the MERN stack and styled using Tailwind CSS, the app focuses on responsive design, scalability, and smooth user experience. NoteVault streamlines the way students and professionals manage their study and work notes in the cloud.",
-      techstack: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Firebase"],
-      image: "notevault.png",
-    },
   ];
 
-  // Intersection Observer for active section on scroll
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["about", "skills", "projects"];
@@ -104,7 +111,7 @@ export default function App() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // initialize on load
+    handleScroll(); 
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -133,7 +140,6 @@ export default function App() {
 
         <div className="lg:flex lg:justify-between lg:gap-4">
 
-          {/* Sidebar */}
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
             <div>
               <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-6xl font-outfit">
@@ -212,9 +218,7 @@ export default function App() {
             </ul>
           </header>
 
-          {/* Main content */}
           <main className="lg:top-0 lg:flex lg:w-[48%] lg:flex-col lg:justify-between lg:py-24 lg:mt-0 mt-10">
-            {/* About */}
             <section id="about" className="mb-10">
               <div className="lg:px-2 font-lato">
                 <p className="text-justify text-lg py-2">
@@ -227,16 +231,33 @@ export default function App() {
                   In my spare time, I enjoy sharpening my skills by solving <span className="text-white">LeetCode</span> questions and exploring <span className="text-white">data structures</span> and <span className="text-white">algorithms</span>. This constant practice not only strengthens my <span className="text-white">problem-solving</span> abilities but also enhances my approach to writing <span className="text-white">efficient</span> and <span className="text-white">optimized</span> code.
                 </p>
               </div>
-              <div className="mt-6 lg:px-2">
+              <div className="mt-6 lg:px-2 space-y-3">
                 <a
-                  href="resume.pdf"
+                  href="resume___web_dev.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-white font-medium text-lg group font-outfit hover:text-teal-400"
+                  className="flex items-center text-white font-medium text-lg group font-outfit hover:text-teal-400"
                 >
-                  View My Resume
+                  View Web Dev Resume
                   <svg
-                    className="ml-2 w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1 group-hover:text-teal-400 "
+                    className="ml-2 w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1 group-hover:text-teal-400"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a
+                  href="resume___ml.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-white font-medium text-lg group font-outfit hover:text-teal-400"
+                >
+                   View ML Resume
+                  <svg
+                    className="ml-2 w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1 group-hover:text-teal-400"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth={2}
@@ -248,7 +269,6 @@ export default function App() {
               </div>
             </section>
 
-            {/* Skills */}
             <section id="skills" className="mt-16 mb-10">
               <ul>
                 {skills.map((item, i) => (
@@ -268,7 +288,6 @@ export default function App() {
               </ul>
             </section>
 
-            {/* Projects */}
             <section id="projects" className="mt-16">
               <ul>
                 {projects.map((item, i) => (
