@@ -30,7 +30,7 @@ export default function App() {
   const skills = [
     {
       heading: "Languages",
-      content: ["JavaScript", "C++", "Python"],
+      content: ["JavaScript", "TypeScript", "C++", "Python"],
     },
     {
       heading: "Core Concepts",
@@ -38,7 +38,7 @@ export default function App() {
     },
     {
       heading: "Frameworks & Libraries",
-      content: ["React.js", "Flask", "Express.js", "Node.js", "Tailwind CSS"],
+      content: ["Next.js", "React.js", "Flask", "Express.js", "Node.js", "Tailwind CSS"],
     },
     {
       heading: "Data Science & ML",
@@ -52,12 +52,11 @@ export default function App() {
 
   const projects = [
     {
-      name: "SpendFlux",
-      href: "https://spendflux-tracker.vercel.app/", // update if different
-      description:
-        "SpendFlux is a full-stack personal finance management application designed to help users track income, expenses, and overall budget in a clean and intuitive interface. It features real-time transaction updates, category-wise expense tracking, and interactive data visualizations including bar and pie charts for better financial insights. Built with React and Tailwind CSS for a responsive frontend, and powered by Node.js, Express, and MongoDB on the backend, SpendFlux ensures efficient data handling, scalability, and a seamless user experience.",
-      techstack: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Chart.js"],
-      image: "spendflux.png",
+      name: "Studiqo",
+      href: "https://studiqo-mu.vercel.app/",
+      description: "Studiqo is a full-stack AI-powered study management platform built to help students plan, track, and optimize their daily learning. It features a smart task planner with time-based scheduling, an integrated study timer to monitor sessions and build consistency, and AI-assisted notes to enhance productivity. The platform also includes user authentication, real-time task updates, and an intuitive dashboard for tracking progress. Developed using Next.js and Tailwind CSS for a fast and responsive frontend, with Node.js, Express, and MongoDB powering the backend, Studiqo delivers a seamless and efficient study experience.",
+      techstack: ["Next.js", "Tailwind CSS", "MongoDB", "Better-Auth"],
+      image: "studiqo.png"
     },
     {
       name: "BeYourTrainer",
@@ -222,13 +221,15 @@ export default function App() {
             <section id="about" className="mb-10">
               <div className="lg:px-2 font-lato">
                 <p className="text-justify text-lg py-2">
-                  I’m a <span className="text-white">developer</span> passionate about building <span className="text-white">seamless</span>, <span className="text-white">high-performance</span> applications that blend <span className="text-white">clean design</span> with <span className="text-white">intelligent functionality</span>. My work thrives at the intersection of <span className="text-white">full-stack engineering</span> and <span className="text-white">machine learning</span>, creating solutions that are not only <span className="text-white">visually appealing</span> but also <span className="text-white">smart</span>, <span className="text-white">scalable</span>, and <span className="text-white">impactful</span>.
+                  I’m a <span className="text-white">full-stack developer</span> focused on building <span className="text-white">scalable</span>, <span className="text-white">high-performance</span> applications with a strong emphasis on <span className="text-white">user experience</span>. I enjoy creating products that combine <span className="text-white">clean design</span> with <span className="text-white">real-world functionality</span>, turning ideas into solutions that are both <span className="text-white">practical</span> and <span className="text-white">impact-driven</span>.
                 </p>
+
                 <p className="text-justify text-lg py-2">
-                  Currently, I focus on crafting <span className="text-white">robust</span> web experiences using the <span className="text-white">MERN stack</span>, while also exploring the potential of <span className="text-white">machine learning</span> to enhance <span className="text-white">usability</span> and <span className="text-white">decision-making</span>. I enjoy translating <span className="text-white">complex ideas</span> into <span className="text-white">intuitive user interfaces</span> and integrating them with <span className="text-white">powerful backend architectures</span>.
+                  My core work revolves around the <span className="text-white">MERN stack</span> and <span className="text-white">Next.js</span>, where I build complete systems — from <span className="text-white">responsive frontends</span> to <span className="text-white">robust backend architectures</span>. Recently, I’ve been integrating <span className="text-white">AI-driven features</span> into applications like <span className="text-white">Studiqo</span>, enhancing productivity through <span className="text-white">smart automation</span> and <span className="text-white">intelligent workflows</span>.
                 </p>
+
                 <p className="text-justify text-lg py-2">
-                  In my spare time, I enjoy sharpening my skills by solving <span className="text-white">LeetCode</span> questions and exploring <span className="text-white">data structures</span> and <span className="text-white">algorithms</span>. This constant practice not only strengthens my <span className="text-white">problem-solving</span> abilities but also enhances my approach to writing <span className="text-white">efficient</span> and <span className="text-white">optimized</span> code.
+                  I actively strengthen my <span className="text-white">problem-solving</span> skills through <span className="text-white">data structures and algorithms</span> practice, which helps me write <span className="text-white">efficient</span>, <span className="text-white">optimized</span>, and <span className="text-white">production-ready</span> code. I’m always exploring new technologies and pushing myself to build <span className="text-white">better</span>, <span className="text-white">faster</span>, and more <span className="text-white">meaningful</span> digital experiences.
                 </p>
               </div>
               <div className="mt-6 lg:px-2 space-y-3">
