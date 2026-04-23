@@ -59,6 +59,14 @@ export default function App() {
       image: "studiqo.png"
     },
     {
+      name: "SpendFlux",
+      href: "https://spendflux-tracker.vercel.app/", 
+      description:
+        "SpendFlux is a full-stack personal finance management application designed to help users track income, expenses, and overall budget in a clean and intuitive interface. It features real-time transaction updates, category-wise expense tracking, and interactive data visualizations including bar and pie charts for better financial insights. Built with React and Tailwind CSS for a responsive frontend, and powered by Node.js, Express, and MongoDB on the backend, SpendFlux ensures efficient data handling, scalability, and a seamless user experience.",
+      techstack: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Chart.js"],
+      image: "spendflux.png",
+    },
+    {
       name: "BeYourTrainer",
       href: "https://beyourtrainer.vercel.app/",
       description:
