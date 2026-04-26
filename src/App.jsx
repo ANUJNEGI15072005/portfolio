@@ -242,7 +242,7 @@ export default function App() {
               </div>
               <div className="mt-6 lg:px-2 space-y-3">
                 <a
-                  href="resume.pdf"
+                  href="full_stack_resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-white font-medium text-lg group font-outfit hover:text-teal-400"
