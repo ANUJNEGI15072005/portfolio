@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'outfit': ['Outfit', 'sans-serif'],
-        'bebas': ['Bebas Neue', 'sans-serif'],
-        'lato': ['Lato', 'sans-serif'],
+        outfit: ["'Outfit'", "sans-serif"],
+        lato: ["'Lato'", "sans-serif"],
+        mono: ["'JetBrains Mono'", "monospace"],
       },
     },
   },
